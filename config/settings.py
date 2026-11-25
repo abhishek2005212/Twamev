@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 from pathlib import Path
 import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -79,8 +80,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-   ' postgresql://twamev_db_user:kjBs37EykH9ABcP7rykXb9ghBiqIV3In@dpg-dc394c40916s7384q4lg-a/twamev_db'
-    
+
+   'default': dj_database_url.config(
+       default='postgresql://twamev_db_user:kjBs37EykH9ABcP7rykXb9ghBiqIV3In@dpg-dc394c40916s7384q4lg-a/twamev_db'
+   )
 }
 
 
