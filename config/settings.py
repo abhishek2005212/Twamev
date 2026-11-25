@@ -9,9 +9,8 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
 from pathlib import Path
-
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -80,22 +79,8 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-
-        # MySQL database name
-        'NAME': 'twamev_db',
-
-        # MySQL username
-        'USER': 'root',
-
-        # Apna actual MySQL password yahan likhna
-        'PASSWORD': 'abhi@29',
-
-        # Local MySQL server
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-    }
+   ' postgresql://twamev_db_user:kjBs37EykH9ABcP7rykXb9ghBiqIV3In@dpg-dc394c40916s7384q4lg-a/twamev_db'
+    
 }
 
 
