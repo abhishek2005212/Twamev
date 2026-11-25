@@ -1,0 +1,743 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+<head>
+    <link rel="icon" href="twmwv">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Twamev | Bring Divinity Home — Authentic Pooja Samagri &amp; Spiritual Essentials</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Font Awesome Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: {
+                            DEFAULT: '#FAF6F0',
+                            dark: '#F3ECE1',
+                            light: '#FDFBF7'
+                        },
+                        saffron: {
+                            DEFAULT: '#D97706',
+                            deep: '#E05A2B',
+                            light: '#FEF3C7'
+                        },
+                        maroon: {
+                            DEFAULT: '#6B1D2F',
+                            dark: '#4A121F',
+                            light: '#8E2940'
+                        },
+                        gold: {
+                            DEFAULT: '#C5A059',
+                            light: '#E6D2AA',
+                            dark: '#9B7836'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'spiritual': '0 10px 30px -5px rgba(107, 29, 47, 0.08), 0 4px 12px -2px rgba(197, 160, 89, 0.12)',
+                        'gold-glow': '0 0 20px rgba(197, 160, 89, 0.35)'
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Custom Aesthetic & Spiritual Motifs */
+        body {
+            background-color: #FAF6F0;
+            color: #2A1810;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, .font-serif-title {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        /* Subtle Mandala / Sacred Geometry background overlay */
+        .bg-mandala-pattern {
+            background-image: radial-gradient(#C5A059 0.75px, transparent 0.75px), radial-gradient(#C5A059 0.75px, #FAF6F0 0.75px);
+            background-size: 32px 32px;
+            background-position: 0 0, 16px 16px;
+            background-color: #FAF6F0;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #4A121F 0%, #6B1D2F 55%, #8E2940 100%);
+        }
+        .gold-border-gradient {
+            border-image: linear-gradient(to right, transparent, #C5A059, transparent) 1;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF6F0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A059;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6B1D2F;
+        }
+        /* Smooth View Transitions */
+        .page-view {
+            animation: fadeInView 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes fadeInView {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Diya Flame Flicker Animation */
+        @keyframes flameFlicker {
+            0%, 100% { transform: scaleY(1) rotate(-1deg); opacity: 0.95; }
+            50% { transform: scaleY(1.08) rotate(1deg); opacity: 1; }
+        }
+        .diya-flame {
+            animation: flameFlicker 2.2s infinite ease-in-out;
+            transform-origin: bottom center;
+        }
+        /* Product Card Image Zoom */
+        .product-card:hover .product-img {
+            transform: scale(1.06);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-maroon selection:text-white">
+<!-- TOP ANNOUNCEMENT BAR -->
+<div class="bg-maroon-dark text-cream text-xs sm:text-sm py-2 px-4 border-b border-gold/30">
+<div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center space-x-2">
+<span class="inline-block w-2 h-2 rounded-full bg-saffron animate-pulse"></span>
+<p class="font-medium tracking-wide">
+<span class="text-gold font-semibold">Shubh Aarambh Offer:</span> Free Sacred Ganga Jal &amp; Express Shipping on orders above ₹999 | Code: <span class="underline decoration-gold font-mono font-bold cursor-pointer" onclick="copyPromoCode('TWAMEV10')">TWAMEV10</span>
+</p>
+</div>
+<div class="hidden md:flex items-center space-x-5 text-xs text-cream/85">
+<span class="flex items-center gap-1.5"><i class="fa-solid fa-certificate text-gold"></i> 100% Lab-Tested Vedic Purity</span>
+<span class="flex items-center gap-1.5"><i class="fa-solid fa-truck-fast text-gold"></i> Pan-India Doorstep Delivery</span>
+<button class="bg-gold/20 hover:bg-gold/30 text-gold border border-gold/40 px-2.5 py-0.5 rounded-full font-semibold transition flex items-center gap-1.5" onclick="openDjangoGuideModal()">
+<i class="fa-solid fa-code"></i> Django + MySQL Guide &amp; Architecture
+                </button>
+</div>
+</div>
+</div>
+<!-- STICKY HEADER & NAVIGATION -->
+<header class="sticky top-0 z-40 bg-cream/95 backdrop-blur-md border-b border-gold/25 shadow-sm">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20 gap-4">
+<!-- Brand Logo -->
+<a class="flex items-center gap-3 group focus:outline-none" href="#home" onclick="window.location.href='/'">
+<!-- Custom Sacred Lotus & Diya SVG Emblem -->
+<div class="w-11 h-11 rounded-full bg-maroon flex items-center justify-center border-2 border-gold shadow-md group-hover:scale-105 transition">
+<svg class="w-7 h-7" fill="none" viewbox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+<!-- Flame -->
+<path class="diya-flame" d="M32 10C32 10 25 20 25 26C25 30.2 28.1 33.5 32 33.5C35.9 33.5 39 30.2 39 26C39 20 32 10 32 10Z" fill="#F59E0B"></path>
+<path class="diya-flame" d="M32 16C32 16 28 22 28 26C28 28.5 29.8 30.5 32 30.5C34.2 30.5 36 28.5 36 26C36 22 32 16 32 16Z" fill="#FEF3C7"></path>
+<!-- Lotus Petals / Diya Base -->
+<path d="M14 38C14 38 21 48 32 48C43 48 50 38 50 38C45 36 39 37 32 37C25 37 19 36 14 38Z" fill="#C5A059"></path>
+<path d="M20 51H44" stroke="#C5A059" stroke-linecap="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<div>
+<span class="font-serif text-2xl sm:text-3xl font-bold tracking-wider text-maroon block leading-none">TWAMEV</span>
+<span class="text-[10px] uppercase tracking-[0.22em] text-saffron-deep font-semibold block mt-0.5">Sacred Pooja Samagri</span>
+</div>
+</a>
+<!-- Desktop Navigation Links -->
+<nav class="hidden lg:flex items-center space-x-1 xl:space-x-2">
+<button class="nav-link px-3.5 py-2 rounded-lg text-sm font-semibold text-maroon hover:bg-gold/15 transition" data-nav="home" onclick="window.location.href='/'">Home</button>
+<button class="nav-link px-3.5 py-2 rounded-lg text-sm font-semibold text-stone-700 hover:text-maroon hover:bg-gold/15 transition" data-nav="shop" onclick="window.location.href='/'">Shop All</button>
+<button class="nav-link px-3.5 py-2 rounded-lg text-sm font-semibold text-stone-700 hover:text-maroon hover:bg-gold/15 transition" data-nav="categories" onclick="window.location.href='/'">Categories</button>
+<button class="nav-link px-3.5 py-2 rounded-lg text-sm font-semibold text-stone-700 hover:text-maroon hover:bg-gold/15 transition" data-nav="about" onclick="window.location.href='/'">About Us</button>
+<button class="nav-link px-3.5 py-2 rounded-lg text-sm font-semibold text-stone-700 hover:text-maroon hover:bg-gold/15 transition" data-nav="contact" onclick="window.location.href='/'">Contact Us</button>
+</nav>
+<!-- Search Bar + Cart + Mobile Toggle -->
+<div class="flex items-center gap-2 sm:gap-3 flex-1 lg:flex-initial justify-end">
+<!-- Live Product Search Bar -->
+<div class="relative hidden sm:block w-full max-w-xs">
+<input class="w-full pl-9 pr-8 py-2 text-sm bg-white border border-gold/40 rounded-full focus:outline-none focus:border-maroon focus:ring-2 focus:ring-maroon/15 transition text-stone-800 placeholder-stone-400" id="navbarSearchInput" oninput="handleGlobalSearch(this.value)" onkeydown="if(event.key === 'Enter') { navigateTo('shop'); }" placeholder="Search camphor, brass diya, kits..." type="text"/>
+<i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400 text-xs"></i>
+<button class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-maroon text-xs" id="clearNavSearchBtn" onclick="handleGlobalSearch('')">
+<i class="fa-solid fa-xmark"></i>
+</button>
+</div>
+<!-- Guest Badge (Explicitly no login/register required as requested) -->
+<div class="hidden xl:flex items-center gap-1.5 text-xs bg-saffron/10 text-saffron-deep border border-saffron/25 px-3 py-1.5 rounded-full font-medium" title="Instant Guest Checkout — No account creation needed">
+<i class="fa-solid fa-user-check"></i>
+<span>Guest Shopping</span>
+</div>
+<!-- Shopping Cart Button with Live Badge -->
+<button aria-label="Shopping Cart" class="relative inline-flex items-center gap-2 bg-maroon hover:bg-maroon-dark text-white px-4 py-2.5 rounded-full text-sm font-semibold transition shadow-sm hover:shadow" onclick="window.location.href='/'">
+<i class="fa-solid fa-bag-shopping text-gold-light"></i>
+<span class="hidden sm:inline">Kalash Cart</span>
+<span class="bg-saffron text-white text-xs font-bold min-w-[22px] h-[22px] px-1.5 rounded-full flex items-center justify-center shadow" id="headerCartCount">0</span>
+</button>
+<!-- Mobile Hamburger Button -->
+<button aria-label="Open Menu" class="lg:hidden p-2.5 rounded-xl bg-white border border-gold/40 text-maroon hover:bg-gold/10 focus:outline-none" onclick="toggleMobileMenu()">
+<i class="fa-solid fa-bars text-lg" id="mobileMenuIcon"></i>
+</button>
+</div>
+</div>
+<!-- Mobile Search & Collapsible Menu -->
+<div class="hidden lg:hidden pb-4 pt-2 border-t border-gold/20 space-y-3" id="mobileMenuDrawer">
+<div class="relative">
+<input class="w-full pl-9 pr-4 py-2.5 text-sm bg-white border border-gold/40 rounded-full focus:outline-none focus:border-maroon" id="mobileSearchInput" oninput="handleGlobalSearch(this.value)" onkeydown="if(event.key === 'Enter') { navigateTo('shop'); toggleMobileMenu(false); }" placeholder="Search pooja samagri, idols, incense..." type="text"/>
+<i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400 text-xs"></i>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-1">
+<button class="text-left px-3.5 py-2.5 rounded-xl text-sm font-semibold bg-white border border-gold/25 text-maroon flex items-center gap-2" onclick="window.location.href='/'"><i class="fa-solid fa-om text-saffron"></i> Home</button>
+<button class="text-left px-3.5 py-2.5 rounded-xl text-sm font-semibold bg-white border border-gold/25 text-stone-700 flex items-center gap-2" onclick="window.location.href='/'"><i class="fa-solid fa-store text-saffron"></i> Shop All</button>
+<button class="text-left px-3.5 py-2.5 rounded-xl text-sm font-semibold bg-white border border-gold/25 text-stone-700 flex items-center gap-2" onclick="window.location.href='/'"><i class="fa-solid fa-layer-group text-saffron"></i> Categories</button>
+<button class="text-left px-3.5 py-2.5 rounded-xl text-sm font-semibold bg-white border border-gold/25 text-stone-700 flex items-center gap-2" onclick="window.location.href='/'"><i class="fa-solid fa-hands-praying text-saffron"></i> About Us</button>
+<button class="text-left px-3.5 py-2.5 rounded-xl text-sm font-semibold bg-white border border-gold/25 text-stone-700 flex items-center gap-2" onclick="window.location.href='/'"><i class="fa-solid fa-envelope-open-text text-saffron"></i> Contact Us</button>
+<button class="text-left px-3.5 py-2.5 rounded-xl text-sm font-semibold bg-maroon text-gold-light flex items-center gap-2" onclick="openDjangoGuideModal(); toggleMobileMenu(false);"><i class="fa-solid fa-code"></i> Django Code</button>
+</div>
+</div>
+</div>
+</header>
+<!-- ===================================================================== -->
+<!-- MAIN DYNAMIC PAGE CONTAINER (9 Distinct E-Commerce Page Views)        -->
+<!-- ===================================================================== -->
+<main class="flex-grow">
+<!-- ================================================================= -->
+<!-- PAGE 1: HOME PAGE                                                 -->
+<!-- ================================================================= -->
+
+<!-- ================================================================= -->
+<!-- PAGE 2: SHOP PAGE (Search, Category Filter, Price Filter, Sort)   -->
+<!-- ================================================================= -->
+
+<!-- ================================================================= -->
+<!-- PAGE 3: PRODUCT CATEGORIES SHOWCASE PAGE                          -->
+<!-- ================================================================= -->
+
+<!-- ================================================================= -->
+<!-- PAGE 4: PRODUCT DETAILS PAGE                                      -->
+<!-- ================================================================= -->
+
+<!-- ================================================================= -->
+<!-- PAGE 5: SHOPPING CART PAGE                                        -->
+<!-- ================================================================= -->
+
+<!-- ================================================================= -->
+<!-- PAGE 6: CHECKOUT PAGE (Django API Ready + Form Validation)        -->
+<!-- ================================================================= -->
+
+<!-- ================================================================= -->
+<!-- PAGE 7: ABOUT US PAGE                                             -->
+<!-- ================================================================= -->
+
+<!-- ================================================================= -->
+<!-- PAGE 8: CONTACT US PAGE (Prepared for Django /contact/ POST)      -->
+<!-- ================================================================= -->
+<section class="py-12" id="contact-page">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+<div class="text-center max-w-2xl mx-auto space-y-2">
+<span class="text-xs uppercase tracking-[0.2em] text-saffron-deep font-bold">We Are Here To Assist Your Rituals</span>
+<h1 class="font-serif text-4xl sm:text-5xl font-bold text-maroon">Contact Twamev Seva Kendra</h1>
+<p class="text-sm text-stone-600">Have questions about bulk festival hampers, custom Griha Pravesh samagri lists, or an existing order? Reach out to us.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Contact Information Placeholders -->
+<div class="lg:col-span-5 space-y-6">
+<div class="bg-maroon text-cream rounded-3xl p-8 border border-gold/40 shadow-spiritual space-y-6">
+<h3 class="font-serif text-2xl font-bold text-gold">Direct Seva Channels</h3>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-xl bg-white/10 text-gold flex items-center justify-center shrink-0">
+<i class="fa-solid fa-phone-volume"></i>
+</div>
+<div>
+<p class="text-xs uppercase tracking-wider text-gold-light">Devotee Helpline (9 AM – 8 PM IST)</p>
+<p class="font-bold text-base mt-0.5">+91 800-892-6380 / +91 98110-10808</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-xl bg-white/10 text-gold flex items-center justify-center shrink-0">
+<i class="fa-solid fa-envelope"></i>
+</div>
+<div>
+<p class="text-xs uppercase tracking-wider text-gold-light">Email Support &amp; Bulk Enquiries</p>
+<p class="font-bold text-base mt-0.5">seva@twamevpooja.in</p>
+<p class="text-xs text-cream/75">corporate.gifting@twamevpooja.in</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-xl bg-white/10 text-gold flex items-center justify-center shrink-0">
+<i class="fa-solid fa-location-dot"></i>
+</div>
+<div>
+<p class="text-xs uppercase tracking-wider text-gold-light">Sanctuary Fulfilment Bhavan</p>
+<p class="font-bold text-sm mt-0.5 leading-relaxed">
+                                        Twamev Spiritual Crafts Pvt. Ltd.<br/>
+                                        Plot 108, Heritage Artisan Park, Dashashwamedh Road, Varanasi — 221001, Uttar Pradesh, India
+                                    </p>
+</div>
+</div>
+<div class="pt-4 border-t border-gold/25 text-xs text-cream/80 flex items-center gap-2">
+<i class="fa-solid fa-code text-gold"></i>
+<span>Form wired for Django <code class="font-mono text-gold-light">POST /contact/</code> endpoint with CSRF token.</span>
+</div>
+</div>
+</div>
+<!-- Contact Form -->
+<div class="lg:col-span-7">
+<div class="bg-white rounded-3xl p-8 border border-gold/30 shadow-sm">
+<h3 class="font-serif text-2xl font-bold text-maroon mb-6">Send Us a Message</h3>
+<!-- Success Message Banner -->
+<div class="hidden mb-6 p-5 rounded-2xl bg-emerald-50 border border-emerald-300 text-emerald-900 space-y-2" id="contactSuccessBanner">
+<div class="flex items-center gap-2 font-bold text-sm">
+<i class="fa-solid fa-circle-check text-emerald-600 text-lg"></i>
+<span>Pranam! Your Enquiry Has Been Recorded.</span>
+</div>
+<p class="text-xs leading-relaxed" id="contactSuccessDetail"></p>
+</div>
+
+<form id="contactForm" class="space-y-4" novalidate>
+    {% csrf_token %}
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1.5">
+                Your Name *
+            </label>
+
+            <input
+                class="w-full px-4 py-2.5 rounded-xl bg-cream border border-gold/40 text-sm focus:outline-none focus:border-maroon"
+                id="cntName"
+                name="name"
+                type="text"
+                placeholder="Enter full name"
+                required
+            >
+
+            <p id="errCntName" class="text-xs text-rose-600 mt-1 hidden">
+                Please enter your name.
+            </p>
+        </div>
+
+        <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1.5">
+                Phone Number *
+            </label>
+
+            <input
+                class="w-full px-4 py-2.5 rounded-xl bg-cream border border-gold/40 text-sm focus:outline-none focus:border-maroon"
+                id="cntPhone"
+                name="phone"
+                type="tel"
+                maxlength="10"
+                placeholder="10-digit mobile number"
+                required
+            >
+
+            <p id="errCntPhone" class="text-xs text-rose-600 mt-1 hidden">
+                Valid 10-digit phone number required.
+            </p>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1.5">
+                Email Address (Optional)
+            </label>
+
+            <input
+                class="w-full px-4 py-2.5 rounded-xl bg-cream border border-gold/40 text-sm focus:outline-none focus:border-maroon"
+                id="cntEmail"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+            >
+
+            <p id="errCntEmail" class="text-xs text-rose-600 mt-1 hidden">
+                Please enter a valid email address.
+            </p>
+        </div>
+
+        <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1.5">
+                Enquiry Subject *
+            </label>
+
+            <select
+                class="w-full px-4 py-2.5 rounded-xl bg-cream border border-gold/40 text-sm focus:outline-none focus:border-maroon"
+                id="cntSubject"
+                name="subject"
+                required
+            >
+                <option value="Custom Pooja Samagri List">Custom Pooja Samagri List</option>
+                <option value="Order Status / Delivery Query">Order Status / Delivery Query</option>
+                <option value="Festive & Wedding Bulk Hampers">Festive & Wedding Bulk Hampers</option>
+                <option value="Rudraksha Certification Query">Rudraksha Certification Query</option>
+                <option value="General Feedback">General Feedback</option>
+            </select>
+        </div>
+    </div>
+
+    <div>
+        <label class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1.5">
+            Your Message *
+        </label>
+
+        <textarea
+            class="w-full px-4 py-2.5 rounded-xl bg-cream border border-gold/40 text-sm focus:outline-none focus:border-maroon"
+            id="cntMessage"
+            name="message"
+            placeholder="Tell us how we can help with your pooja requirements..."
+            required
+            rows="4"
+        ></textarea>
+
+        <p id="errCntMessage" class="text-xs text-rose-600 mt-1 hidden">
+            Please enter a message (at least 10 characters).
+        </p>
+    </div>
+
+    <button
+        class="px-8 py-3.5 rounded-full bg-maroon hover:bg-maroon-dark text-white font-bold text-sm shadow transition flex items-center gap-2"
+        type="submit"
+    >
+        <i class="fa-solid fa-paper-plane text-gold"></i>
+        <span>Submit Enquiry to Twamev</span>
+    </button>
+</form>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================================================================= -->
+<!-- PAGE 9: ORDER CONFIRMATION PAGE                                   -->
+<!-- ================================================================= -->
+
+</main>
+<!-- ===================================================================== -->
+<!-- FOOTER                                                                -->
+<!-- ===================================================================== -->
+<footer class="bg-maroon-dark text-cream border-t-2 border-gold/40 mt-16">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+<!-- Brand Col -->
+<div class="lg:col-span-2 space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-maroon flex items-center justify-center border border-gold">
+<i class="fa-solid fa-om text-gold"></i>
+</div>
+<div>
+<span class="font-serif text-2xl font-bold tracking-wider text-cream block leading-none">TWAMEV</span>
+<span class="text-[10px] uppercase tracking-[0.22em] text-gold font-semibold">Bring Divinity Home</span>
+</div>
+</div>
+<p class="text-xs sm:text-sm text-cream/80 leading-relaxed max-w-sm">
+                        India's trusted destination for lab-certified Bhimseni camphor, heirloom Moradabad brassware, authentic Nepal Rudraksha, and priest-curated Vedic Pooja Samagri kits.
+                    </p>
+<div class="flex items-center gap-3 pt-1">
+<button class="text-xs bg-gold hover:bg-gold-dark text-maroon-dark font-bold px-4 py-2 rounded-full transition flex items-center gap-2" onclick="openDjangoGuideModal()">
+<i class="fa-solid fa-folder-tree"></i> View Project Structure &amp; Django Guide
+                        </button>
+</div>
+</div>
+<!-- Quick Links -->
+<div class="space-y-2.5">
+<h4 class="font-serif text-lg font-bold text-gold">Quick Navigation</h4>
+<ul class="space-y-2 text-xs sm:text-sm text-cream/80">
+<li><button class="hover:text-gold transition" onclick="window.location.href='/'">Home Sanctuary</button></li>
+<li><button class="hover:text-gold transition" onclick="window.location.href='/'">All Pooja Products</button></li>
+<li><button class="hover:text-gold transition" onclick="window.location.href='/'">8 Sacred Categories</button></li>
+<li><button class="hover:text-gold transition" onclick="window.location.href='/'">Kalash Shopping Cart</button></li>
+<li><button class="hover:text-gold transition" onclick="window.location.href='/'">Our Vedic Story</button></li>
+<li><button class="hover:text-gold transition" onclick="window.location.href='/'">Contact Seva Kendra</button></li>
+</ul>
+</div>
+<!-- Categories -->
+<div class="space-y-2.5">
+<h4 class="font-serif text-lg font-bold text-gold">Sacred Collections</h4>
+<ul class="space-y-2 text-xs sm:text-sm text-cream/80">
+<li><button class="hover:text-gold transition" onclick="filterShopByCategory('Pooja Samagri Kits')">Pooja Samagri Kits</button></li>
+<li><button class="hover:text-gold transition" onclick="filterShopByCategory('Diyas and Incense')">Diyas &amp; Pure Incense</button></li>
+<li><button class="hover:text-gold transition" onclick="filterShopByCategory('Idols and Religious Accessories')">Brass Idols &amp; Bells</button></li>
+<li><button class="hover:text-gold transition" onclick="filterShopByCategory('Rudraksha and Mala')">Rudraksha &amp; Japa Malas</button></li>
+<li><button class="hover:text-gold transition" onclick="filterShopByCategory('Havan Samagri')">Vedic Havan Samagri</button></li>
+<li><button class="hover:text-gold transition" onclick="filterShopByCategory('Gifts and Spiritual Hampers')">Spiritual Gift Hampers</button></li>
+</ul>
+</div>
+<!-- Architecture & Trust -->
+<div class="space-y-2.5">
+<h4 class="font-serif text-lg font-bold text-gold">Devotee Assurance</h4>
+<ul class="space-y-2 text-xs text-cream/80">
+<li class="flex items-center gap-2"><i class="fa-solid fa-check text-saffron"></i> 100% Guest Checkout</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-check text-saffron"></i> COD &amp; Razorpay Ready</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-check text-saffron"></i> Free Delivery Above ₹999</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-check text-saffron"></i> Django + MySQL Ready</li>
+</ul>
+<div class="pt-3">
+<p class="text-[11px] text-gold-light uppercase tracking-wider mb-1">Coupon Codes:</p>
+<span class="inline-block text-xs font-mono bg-white/10 px-2 py-1 rounded border border-gold/30 mr-1">TWAMEV10</span>
+<span class="inline-block text-xs font-mono bg-white/10 px-2 py-1 rounded border border-gold/30">DIVINE20</span>
+</div>
+</div>
+</div>
+<div class="border-t border-gold/20 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-cream/70 gap-4">
+<p>© 2026 Twamev Spiritual Crafts Pvt. Ltd. Crafted with devotion in India.</p>
+<p>Frontend Demo (`localStorage`) + Production-Ready Django REST / Template Architecture</p>
+</div>
+</div>
+</footer>
+<!-- ===================================================================== -->
+<!-- TOAST NOTIFICATION CONTAINER (Replaces native alert/confirm)          -->
+<!-- ===================================================================== -->
+<div class="fixed bottom-5 right-5 z-50 flex flex-col gap-2.5 max-w-sm w-full pointer-events-none px-4 sm:px-0" id="toastContainer"></div>
+<!-- ===================================================================== -->
+<!-- DEVELOPER MODAL: FOLDER STRUCTURE, VS CODE GUIDE, DJANGO + MYSQL      -->
+<!-- ===================================================================== -->
+<div class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-sm flex items-center justify-center p-4" id="djangoGuideModal">
+<div class="bg-cream w-full max-w-5xl rounded-3xl border-2 border-gold shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+<!-- Modal Header -->
+<div class="bg-maroon text-cream px-6 py-4 flex items-center justify-between border-b border-gold/40">
+<div class="flex items-center gap-3">
+<i class="fa-solid fa-layer-group text-gold text-xl"></i>
+<div>
+<h3 class="font-serif text-xl sm:text-2xl font-bold">Twamev Architecture — Folder Structure, VS Code &amp; Django + MySQL Guide</h3>
+<p class="text-xs text-gold-light">Complete production roadmap for converting this frontend into a multi-file Django + MySQL e-commerce platform</p>
+</div>
+</div>
+<button class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center" onclick="closeDjangoGuideModal()">
+<i class="fa-solid fa-xmark"></i>
+</button>
+</div>
+<!-- Modal Body -->
+<div class="p-6 overflow-y-auto space-y-6 text-xs sm:text-sm text-stone-800 leading-relaxed">
+<!-- 1. Project Folder Structure -->
+<div class="bg-white p-5 rounded-2xl border border-gold/30 space-y-3">
+<h4 class="font-serif text-xl font-bold text-maroon flex items-center gap-2">
+<i class="fa-solid fa-folder-open text-saffron"></i> 1. Recommended Project Folder Structure (Frontend &amp; Django Ready)
+                    </h4>
+<p class="text-stone-600">When organizing your files in VS Code for standalone frontend testing and subsequent Django template integration, structure your workspace as follows:</p>
+<pre class="bg-stone-900 text-amber-100 p-4 rounded-xl overflow-x-auto font-mono text-xs leading-relaxed">
+twamev_ecommerce/
+├── manage.py
+├── requirements.txt                  # django, mysqlclient, razorpay, pillow, python-dotenv
+├── twamev_project/                   # Main Django Project Config
+│   ├── __init__.py
+│   ├── settings.py                   # MySQL DB config, STATICFILES_DIRS, MEDIA_ROOT
+│   ├── urls.py                       # Main URL router
+│   └── wsgi.py
+├── store/                            # Core E-Commerce App
+│   ├── models.py                     # Category, Product, Order, OrderItem, ContactEnquiry
+│   ├── views.py                      # Template views + /api/orders/ &amp; /contact/ endpoints
+│   ├── urls.py                       # App-level routes
+│   └── admin.py                      # Custom Django Admin for inventory &amp; order status
+├── templates/                        # Separated HTML files (Django Template Ready)
+│   ├── base.html                     # Shared Navbar, Announcement Bar, Footer, CSRF script
+│   ├── home.html                     # Hero, Featured Categories, Bestsellers, Reviews
+│   ├── shop.html                     # Product Grid, Search, Category &amp; Price Filters
+│   ├── categories.html               # All 8 Spiritual Categories Showcase
+│   ├── product_detail.html           # Gallery Previews, Purity Specs, Related Products
+│   ├── cart.html                     # Kalash Cart, Coupon Engine, Subtotal Breakdown
+│   ├── checkout.html                 # Guest Checkout Form, COD &amp; Razorpay Option
+│   ├── about.html                    # Brand Story &amp; Sourcing Ethics
+│   ├── contact.html                  # Seva Kendra Form -&gt; POST /contact/
+│   └── order_confirmation.html       # Order Summary &amp; Live Status
+└── static/
+    ├── css/
+    │   └── styles.css                # Custom variables, mandala motifs, animations
+    ├── js/
+    │   ├── products.js               # Structured product catalog (or hydrated from Django)
+    │   ├── cart.js                   # localStorage cart state &amp; calculations
+    │   └── checkout_api.js           # CSRF token reader + fetch('/api/orders/')
+    └── images/                       # Product photography &amp; SVG icons</pre>
+</div>
+<!-- 2. Running Locally in VS Code -->
+<div class="bg-white p-5 rounded-2xl border border-gold/30 space-y-3">
+<h4 class="font-serif text-xl font-bold text-maroon flex items-center gap-2">
+<i class="fa-solid fa-laptop-code text-saffron"></i> 2. Running the Frontend Locally in VS Code (Stage 1)
+                    </h4>
+<ol class="list-decimal list-inside space-y-1.5 text-stone-700">
+<li>Open <strong>Visual Studio Code</strong> and create a new folder named <code class="font-mono bg-cream px-1.5 py-0.5 rounded">twamev-store</code>.</li>
+<li>Save this file as <code class="font-mono bg-cream px-1.5 py-0.5 rounded">index.html</code> (or split the CSS into <code class="font-mono">static/css/styles.css</code> and JS into <code class="font-mono">static/js/app.js</code>).</li>
+<li>Install the <strong>Live Server</strong> extension by Ritwick Dey in VS Code.</li>
+<li>Right-click <code class="font-mono">index.html</code> and click <strong>"Open with Live Server"</strong> (runs at <code class="font-mono">http://127.0.0.1:5500</code>).</li>
+<li>Test adding items to the cart, applying coupons (<code class="font-mono">TWAMEV10</code> / <code class="font-mono">DIVINE20</code>), and toggling between <strong>Frontend Demo Mode</strong> and <strong>Django API Mode</strong> on the Checkout page.</li>
+</ol>
+</div>
+<!-- 3. Django Models & MySQL Configuration -->
+<div class="bg-white p-5 rounded-2xl border border-gold/30 space-y-3">
+<h4 class="font-serif text-xl font-bold text-maroon flex items-center gap-2">
+<i class="fa-solid fa-database text-saffron"></i> 3. Django + MySQL Models &amp; Backend Endpoints (Stage 2)
+                    </h4>
+<pre class="bg-stone-900 text-emerald-200 p-4 rounded-xl overflow-x-auto font-mono text-xs leading-relaxed">
+# store/models.py
+from django.db import models
+
+class Category(models.Model):
+    name = models.CharField(max_length=120, unique=True)
+    slug = models.SlugField(unique=True)
+    description = models.TextField(blank=True)
+
+class Product(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
+    sku = models.CharField(max_length=40, unique=True)
+    name = models.CharField(max_length=200)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    original_price = models.DecimalField(max_digits=10, decimal_places=2)
+    stock = models.PositiveIntegerField(default=25)
+    is_bestseller = models.BooleanField(default=False)
+    is_new_arrival = models.BooleanField(default=False)
+    description = models.TextField()
+    image_url = models.URLField(max_length=500)
+
+class Order(models.Model):
+    STATUS_CHOICES = [
+        ('PENDING', 'Pending Verification'),
+        ('CONFIRMED', 'Confirmed &amp; Sanctifying'),
+        ('SHIPPED', 'Dispatched via Courier'),
+        ('DELIVERED', 'Delivered')
+    ]
+    order_number = models.CharField(max_length=32, unique=True)
+    full_name = models.CharField(max_length=120)
+    phone = models.CharField(max_length=15)
+    email = models.EmailField()
+    street_address = models.TextField()
+    city = models.CharField(max_length=80)
+    state = models.CharField(max_length=80)
+    pincode = models.CharField(max_length=10)
+    payment_method = models.CharField(max_length=30) # COD or RAZORPAY_ONLINE
+    subtotal = models.DecimalField(max_digits=10, decimal_places=2)
+    discount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    delivery_charge = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    total_amount = models.DecimalField(max_digits=10, decimal_places=2)
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='PENDING')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+class ContactEnquiry(models.Model):
+    name = models.CharField(max_length=120)
+    phone = models.CharField(max_length=15)
+    email = models.EmailField()
+    subject = models.CharField(max_length=150)
+    message = models.TextField()
+    submitted_at = models.DateTimeField(auto_now_add=True)</pre>
+</div>
+</div>
+<!-- Modal Footer -->
+<div class="bg-cream-dark px-6 py-3.5 border-t border-gold/30 flex justify-end">
+<button class="px-6 py-2 rounded-full bg-maroon text-white text-xs font-bold hover:bg-maroon-dark transition" onclick="closeDjangoGuideModal()">
+                    Close Developer Blueprint
+                </button>
+</div>
+</div>
+</div>
+<!-- ===================================================================== -->
+<!-- STRUCTURED VANILLA JAVASCRIPT APPLICATION                             -->
+<!-- ===================================================================== -->
+<script>function getDjangoCsrfToken() {
+    const match = document.cookie.match(/(?:^|; )csrftoken=([^;]+)/);
+    const hidden = document.querySelector('[name=csrfmiddlewaretoken]');
+    return match ? decodeURIComponent(match[1]) : (hidden ? hidden.value : '');
+}
+function showToast(message, type = 'success') {
+    const container = document.getElementById('toastContainer');
+    if (!container) { alert(message); return; }
+    const toast = document.createElement('div');
+    toast.className = 'pointer-events-auto bg-maroon-dark text-cream border border-gold/50 px-4 py-3 rounded-2xl shadow-xl text-xs sm:text-sm';
+    toast.textContent = message;
+    container.appendChild(toast);
+    setTimeout(() => toast.remove(), 3500);
+}
+
+async function handleContactSubmit(event) {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+
+    const name = document.getElementById("cntName").value.trim();
+    const phone = document.getElementById("cntPhone").value.trim();
+    const email = document.getElementById("cntEmail").value.trim();
+    const subject = document.getElementById("cntSubject").value;
+    const message = document.getElementById("cntMessage").value.trim();
+
+    const showError = (id, show) => {
+        document.getElementById(id).classList.toggle("hidden", !show);
+    };
+
+    const validName = name.length >= 2;
+    const validPhone = /^[6-9]\d{9}$/.test(phone);
+    const validEmail = !email || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const validMessage = message.length >= 10;
+
+    showError("errCntName", !validName);
+    showError("errCntPhone", !validPhone);
+    showError("errCntEmail", !validEmail);
+    showError("errCntMessage", !validMessage);
+
+    if (!validName || !validPhone || !validEmail || !validMessage) {
+        showToast("Please check the highlighted fields.", "warning");
+        return;
+    }
+
+    const submitButton = form.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+
+    try {
+        const response = await fetch("/api/contact/", {
+            method: "POST",
+            headers: {
+                "X-CSRFToken": form.querySelector(
+                    '[name="csrfmiddlewaretoken"]'
+                ).value
+            },
+            body: new FormData(form)
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw new Error(result.error || "Enquiry submit nahi hui.");
+        }
+
+        const banner = document.getElementById("contactSuccessBanner");
+        const detail = document.getElementById("contactSuccessDetail");
+
+        if (banner) {
+            banner.classList.remove("hidden");
+        }
+
+        if (detail) {
+            detail.textContent =
+                "Thank you, " + name + ". Your enquiry has been saved.";
+        }
+
+        form.reset();
+        showToast("Your enquiry has been submitted successfully.", "success");
+
+    } catch (error) {
+        showToast(error.message || "Django server se connection nahi hua.", "warning");
+    } finally {
+        submitButton.disabled = false;
+    }
+}
+
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+    contactForm.addEventListener("submit", handleContactSubmit);
+}
+
+
+</script>
+</body>
+</html>
