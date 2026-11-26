@@ -84,10 +84,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-
-   'default': dj_database_url.config(
-       default='postgresql://twamev_db_user:kjBs37EykH9ABcP7rykXb9ghBiqIV3In@dpg-dc394c40916s7384q4lg-a/twamev_db'
-   )
+    'default': dj_database_url.config()
 }
 
 
